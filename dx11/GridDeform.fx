@@ -10,20 +10,20 @@ SamplerState g_samLinear : IMMUTABLE
     AddressV = Clamp;
 };
 
- 
-cbuffer cbPerDraw : register( b0 )
-{
-	float4x4 tVP : VIEWPROJECTION;
-};
+float4x4 tVP : VIEWPROJECTION;
+float4x4 tW : WORLD;
 
+float Alpha <float uimin=0.0; float uimax=1.0;> = 1;
+float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
+float4x4 tColor <string uiname="Color Transform";>;
 
-cbuffer cbPerObj : register( b1 )
-{
-	float4x4 tW : WORLD;
-	float Alpha <float uimin=0.0; float uimax=1.0;> = 1; 
-	float4 cAmb <bool color=true;String uiname="Color";> = { 1.0f,1.0f,1.0f,1.0f };
-	float4x4 tColor <string uiname="Color Transform";>;
-};
+float GridWidth = 1.;
+float SegmentSize = 1.;
+int Resolution = 2;
+
+StructuredBuffer<float4> Indices;
+StructuredBuffer<float2> BaseVertexes;
+StructuredBuffer<float2> TransformedVertexes;
 
 struct VS_IN
 {
@@ -49,7 +49,46 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 {
 	vs2ps Out = (vs2ps)0;
 	
-	Out.PosWVP = mul(PosO,mul(tW,tVP));
+	float4 posW = mul(PosO, tW);
+	float2 pos = posW.xz;
+	
+	float halfWidth = GridWidth / 2;
+	
+	int iU = floor((halfWidth + posW.x) / SegmentSize);
+	//11.27
+	int iV = floor((halfWidth - posW.z) / SegmentSize);
+	
+	int cellIndex = iU + iV * (Resolution - 1);
+	//int cellIndex = 23;
+	
+	int4 ind = Indices[cellIndex];
+	
+	float2 bP0 = BaseVertexes[ind[0]];
+	float2 bP1 = BaseVertexes[ind[1]];
+	float2 bP2 = BaseVertexes[ind[2]];
+	float2 bP3 = BaseVertexes[ind[3]];
+	
+	float2 tP0 = TransformedVertexes[ind[0]];
+	float2 tP1 = TransformedVertexes[ind[1]];
+	float2 tP2 = TransformedVertexes[ind[2]];
+	float2 tP3 = TransformedVertexes[ind[3]];
+	
+	float u = (pos.x - bP0.x) / (bP1.x - bP0.x);
+	float v = (bP0.y - pos.y) / (bP2.y - bP0.y);
+	//float v = 0;
+	
+	float2 uP0 = (1 - u) * tP2 + u * tP3;
+	float2 uP1 = (1 - u) * tP0 + u * tP1;
+	
+	float2 uvPos = (1 - v) * uP0 + v * uP1;
+	
+	float2 uvPos2 = 0;
+	uvPos2.x = (bP0.x + bP1.x + bP2.x + bP3.x) / 4;
+	uvPos2.y = (bP0.y + bP1.y + bP2.y + bP3.y) / 4;
+	
+	posW.xz = uvPos;
+	
+	Out.PosWVP = mul(posW, tVP);
     return Out;
 }
 
