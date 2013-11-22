@@ -307,7 +307,7 @@
    </PIN>
    <PIN pinname="XY" visible="1">
    </PIN>
-   <PIN pinname="Read" slicecount="1" values="0">
+   <PIN pinname="Read" slicecount="1" values="0" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="28" systemname="IOBox (String)">
@@ -354,8 +354,34 @@
    </NODE>
    <LINK srcnodeid="29" srcpinname="Output" dstnodeid="30" dstpinname="Y Input Value">
    </LINK>
-   <LINK srcnodeid="12" srcpinname="Output" dstnodeid="14" dstpinname="Input">
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="31" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="10155" top="420" width="480" height="480">
+   </BOUNDS>
+   <BOUNDS type="Node" left="10155" top="420" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   </PIN>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   <PIN pinname="Value Type" slicecount="1" values="Boolean">
+   </PIN>
+   <PIN pinname="Behavior" slicecount="1" values="Bang">
+   </PIN>
+   <PIN pinname="Descriptive Name" slicecount="1" values="Read">
+   </PIN>
+   <PIN pinname="Y Output Value" visible="1">
+   </PIN>
+   <PIN pinname="X Input Value" slicecount="1" values="0">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="31" srcpinname="Y Output Value" dstnodeid="22" dstpinname="Read">
    </LINK>
-   <LINK srcnodeid="3" srcpinname="XY" dstnodeid="16" dstpinname="Y Input Value">
+   <LINK srcnodeid="31" srcpinname="Y Output Value" dstnodeid="27" dstpinname="Read">
+   </LINK>
+   <LINK srcnodeid="23" srcpinname="Output 1" dstnodeid="14" dstpinname="Input">
+   </LINK>
+   <LINK srcnodeid="24" srcpinname="Output" dstnodeid="16" dstpinname="Y Input Value">
    </LINK>
    </PATCH>

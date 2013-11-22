@@ -1,6 +1,6 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
    <PATCH nodename="D:\Dropbox\Git Repos\VVVV.Nodes.GridDeform\GridDeform help.v4p" systemname="GridDeform help" filename="D:\Dropbox\Git Repos\VVVV.Nodes.GridDeform\GridDeform help.v4p">
-   <BOUNDS type="Window" left="615" top="5430" width="21615" height="16200">
+   <BOUNDS type="Window" left="2160" top="2610" width="21615" height="16200">
    </BOUNDS>
    <NODE systemname="GridDeform (DX11.Effect)" filename="dx11\GridDeform.fx" nodename="GridDeform (DX11.Effect)" componentmode="Hidden" id="1">
    <BOUNDS type="Node" left="2985" top="15180" width="2145" height="270">
@@ -41,7 +41,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="2295" top="26655" width="6000" height="4500">
    </BOUNDS>
-   <BOUNDS type="Window" left="12915" top="345" width="15885" height="14415">
+   <BOUNDS type="Window" left="11595" top="0" width="17205" height="16200">
    </BOUNDS>
    <PIN pinname="Layers" visible="1">
    </PIN>
@@ -213,7 +213,7 @@
    </BOUNDS>
    <PIN pinname="Transform Out" visible="1">
    </PIN>
-   <PIN pinname="XYZ" slicecount="1" values="16.44" visible="1">
+   <PIN pinname="XYZ" slicecount="1" visible="1" values="18.99">
    </PIN>
    <PIN pinname="Transform In" visible="1">
    </PIN>
@@ -437,7 +437,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="10650" top="7650" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0.01">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -969,7 +969,7 @@
    <LINK srcnodeid="65" srcpinname="Output" dstnodeid="122" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 2d)" componentmode="Hidden" id="124">
-   <BOUNDS type="Node" left="5145" top="12330" width="100" height="100">
+   <BOUNDS type="Node" left="5265" top="12330" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXY" visible="1" slicecount="800" values="0,0">
    </PIN>
@@ -1130,20 +1130,10 @@
    </LINK>
    <LINK srcnodeid="138" srcpinname="Y Output Value" dstnodeid="1" dstpinname="Resolution">
    </LINK>
-   <NODE systemname="IOBox (Value Advanced)" nodename="IOBox (Value Advanced)" componentmode="InABox" id="139">
-   <BOUNDS type="Node" left="420" top="8325" width="100" height="100">
-   </BOUNDS>
-   <BOUNDS type="Box" left="420" top="8325" width="795" height="240">
-   </BOUNDS>
-   <PIN pinname="Y Output Value" visible="1">
-   </PIN>
-   <PIN pinname="Y Input Value" visible="1" slicecount="1" values="23">
-   </PIN>
-   </NODE>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="141" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="4035" top="885" width="795" height="240">
+   <BOUNDS type="Box" left="2865" top="1365" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="4035" top="885" width="0" height="0">
+   <BOUNDS type="Node" left="2865" top="1365" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="19">
    </PIN>
@@ -1154,12 +1144,10 @@
    <PIN pinname="Y Output Value" visible="1">
    </PIN>
    </NODE>
-   <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="139" dstpinname="Y Input Value">
-   </LINK>
    <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="142" systemname="IOBox (Value Advanced)">
-   <BOUNDS type="Box" left="5205" top="870" width="795" height="240">
+   <BOUNDS type="Box" left="6465" top="1470" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="5205" top="870" width="0" height="0">
+   <BOUNDS type="Node" left="6465" top="1470" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Y Input Value" slicecount="1" values="20">
    </PIN>
@@ -1213,8 +1201,6 @@
    <LINK srcnodeid="142" srcpinname="Y Output Value" dstnodeid="140" dstpinname="Grid Resolution">
    </LINK>
    <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="11" dstpinname="XYZ">
-   </LINK>
-   <LINK srcnodeid="140" srcpinname="Deformed XY" dstnodeid="124" dstpinname="DataXY">
    </LINK>
    <LINK srcnodeid="140" srcpinname="XY" dstnodeid="135" dstpinname="XY">
    </LINK>
@@ -1317,15 +1303,15 @@
    </PIN>
    </NODE>
    <NODE systemname="SceneFile (DX11.Geometry Assimp)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="SceneFile (DX11.Geometry Assimp)" componentmode="Hidden" id="150">
-   <BOUNDS type="Node" left="2580" top="7860" width="100" height="100">
+   <BOUNDS type="Node" left="1245" top="7830" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Scene" visible="1">
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="151" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="2625" top="7290" width="795" height="240">
+   <BOUNDS type="Box" left="1290" top="7260" width="795" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="2625" top="7290" width="0" height="0">
+   <BOUNDS type="Node" left="1290" top="7260" width="0" height="0">
    </BOUNDS>
    <PIN pinname="Input String" slicecount="1" values="data\Boxes.ply">
    </PIN>
@@ -1341,7 +1327,7 @@
    <LINK srcnodeid="151" srcpinname="Output String" dstnodeid="150" dstpinname="Filename">
    </LINK>
    <NODE systemname="Mesh (DX11.Geometry Assimp)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.Assimp.dll" nodename="Mesh (DX11.Geometry Assimp)" componentmode="Hidden" id="152">
-   <BOUNDS type="Node" left="2565" top="8610" width="100" height="100">
+   <BOUNDS type="Node" left="1230" top="8580" width="100" height="100">
    </BOUNDS>
    <PIN pinname="Scene" visible="1">
    </PIN>
@@ -1378,16 +1364,50 @@
    </NODE>
    <LINK srcnodeid="154" srcpinname="Geometry Out" dstnodeid="1" dstpinname="Geometry">
    </LINK>
-   <LINK srcnodeid="114" srcpinname="Buffer" dstnodeid="1" dstpinname="TransformedVertexes">
+   <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="1" dstpinname="GridWidth">
    </LINK>
-   <LINK srcnodeid="140" srcpinname="XY" dstnodeid="147" dstpinname="Input">
+   <LINK srcnodeid="142" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Resolution X">
    </LINK>
-   <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Resolution X">
+   <LINK srcnodeid="142" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Resolution Y">
    </LINK>
-   <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="154" dstpinname="Resolution Y">
+   <NODE systemname="Count (Value)" nodename="Count (Value)" componentmode="Hidden" id="155">
+   <BOUNDS type="Node" left="16395" top="11400" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Count" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="92" srcpinname="Output" dstnodeid="155" dstpinname="Input">
+   </LINK>
+   <NODE systemname="Divide (Value)" nodename="Divide (Value)" componentmode="Hidden" id="156">
+   <BOUNDS type="Node" left="16365" top="11805" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   <PIN pinname="Input 2" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="155" srcpinname="Count" dstnodeid="156" dstpinname="Input">
+   </LINK>
+   <NODE nodename="IOBox (Value Advanced)" componentmode="InABox" id="157" systemname="IOBox (Value Advanced)">
+   <BOUNDS type="Box" left="16365" top="12435" width="795" height="240">
+   </BOUNDS>
+   <BOUNDS type="Node" left="16365" top="12435" width="0" height="0">
+   </BOUNDS>
+   <PIN pinname="Units" slicecount="1" values="||">
+   </PIN>
+   <PIN pinname="Precision" slicecount="1" values="4">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="156" srcpinname="Output" dstnodeid="157" dstpinname="Y Input Value">
    </LINK>
    <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="14" dstpinname="XYZ">
    </LINK>
-   <LINK srcnodeid="141" srcpinname="Y Output Value" dstnodeid="1" dstpinname="GridWidth">
+   <LINK srcnodeid="140" srcpinname="Deformed XY" dstnodeid="124" dstpinname="DataXY">
+   </LINK>
+   <LINK srcnodeid="124" srcpinname="Buffer" dstnodeid="1" dstpinname="TransformedVertexes">
+   </LINK>
+   <LINK srcnodeid="140" srcpinname="Deformed XY" dstnodeid="147" dstpinname="Input">
    </LINK>
    </PATCH>

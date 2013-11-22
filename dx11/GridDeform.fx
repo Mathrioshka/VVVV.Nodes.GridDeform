@@ -50,16 +50,19 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 	vs2ps Out = (vs2ps)0;
 	
 	float4 posW = mul(PosO, tW);
+	
+	//Dirty Hack
+	posW *= 0.9999;
+	
 	float2 pos = posW.xz;
 	
 	float halfWidth = GridWidth / 2;
 	
 	int iU = floor((halfWidth + posW.x) / SegmentSize);
-	//11.27
+	
 	int iV = floor((halfWidth - posW.z) / SegmentSize);
 	
 	int cellIndex = iU + iV * (Resolution - 1);
-	//int cellIndex = 23;
 	
 	int4 ind = Indices[cellIndex];
 	
@@ -74,13 +77,12 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 	float2 tP3 = TransformedVertexes[ind[3]];
 	
 	float u = (pos.x - bP0.x) / (bP1.x - bP0.x);
-	float v = (bP0.y - pos.y) / (bP2.y - bP0.y);
-	//float v = 0;
+	float v = (bP0.y - pos.y) / (bP0.y - bP2.y);
 	
-	float2 uP0 = (1 - u) * tP2 + u * tP3;
-	float2 uP1 = (1 - u) * tP0 + u * tP1;
+	float2 uP0 = (1.0 - u) * tP2 + u * tP3;
+	float2 uP1 = (1.0 - u) * tP0 + u * tP1;
 	
-	float2 uvPos = (1 - v) * uP0 + v * uP1;
+	float2 uvPos = (1.0 - v) * uP1 + v * uP0;
 	
 	float2 uvPos2 = 0;
 	uvPos2.x = (bP0.x + bP1.x + bP2.x + bP3.x) / 4;
