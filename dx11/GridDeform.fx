@@ -25,6 +25,13 @@ StructuredBuffer<float4> Indices;
 StructuredBuffer<float2> BaseVertexes;
 StructuredBuffer<float2> TransformedVertexes;
 
+float MinY = -1;
+float MaxY = 1;
+
+float4 lowerColor <bool color=true; String uiname="Lower Min";> = { 1.0f,1.0f,1.0f,1.0f };
+float4 rangeColor <bool color=true; String uiname="In Range";> = { 1.0f,1.0f,1.0f,1.0f };
+float4 greaterColor <bool color=true; String uiname="Greater Max";> = { 1.0f,1.0f,1.0f,1.0f };
+
 struct VS_IN
 {
 	float4 PosO : POSITION;
@@ -69,6 +76,38 @@ float2 cartogramDeform(float2 pos) {
 	return uvPos;
 }
 
+vs2ps RANGE_COLOR_VS(VS_IN input)
+{
+    vs2ps Out = (vs2ps)0;
+	float4 posW = mul(input.PosO, tW);
+	
+	//Dirty Hack
+	posW *= 0.9999;
+	
+	float2 pos = posW.xz;
+	
+	float2 uvPos = cartogramDeform(pos);
+	
+	posW.xz = uvPos;
+	
+    Out.PosWVP = mul(posW, tVP);
+	
+	float4 color = input.Col;
+	
+	float y = posW.y;
+	
+	if(y > MinY && y < MaxY) {
+		color *= rangeColor;
+	} else if(y <= MinY) {
+		color *= lowerColor;
+	} else {
+		color *= greaterColor;
+	}
+	
+	Out.Col = color;
+    return Out;
+}
+
 vs2ps VERTEX_COLOR_VS(VS_IN input)
 {
     vs2ps Out = (vs2ps)0;
@@ -100,10 +139,6 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 	
 	float2 uvPos = cartogramDeform(pos);
 	
-//	float2 uvPos2 = 0;
-//	uvPos2.x = (bP0.x + bP1.x + bP2.x + bP3.x) / 4;
-//	uvPos2.y = (bP0.y + bP1.y + bP2.y + bP3.y) / 4;
-	
 	posW.xz = uvPos;
 	
 	Out.PosWVP = mul(posW, tVP);
@@ -122,6 +157,15 @@ float4 CONSTANT_PS(vs2ps In): SV_Target
     float4 col = cAmb;
 	col.a *= Alpha;
     return col;
+}
+
+technique10 Range_Color
+{
+	pass P0
+	{
+		SetVertexShader( CompileShader( vs_4_0, RANGE_COLOR_VS() ) );
+		SetPixelShader( CompileShader( ps_4_0, VERTEX_COLOR_PS() ) );
+	}
 }
 
 technique10 Vertex_Color
