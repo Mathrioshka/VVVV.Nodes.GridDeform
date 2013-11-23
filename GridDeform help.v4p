@@ -53,6 +53,10 @@
    </PIN>
    <PIN pinname="Depth Buffer Format" slicecount="1" values="D32_Float">
    </PIN>
+   <PIN pinname="Aspect Ratio" visible="1">
+   </PIN>
+   <PIN pinname="Actual BackBuffer SizeXY" visible="1">
+   </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="3" systemname="IOBox (String)">
    <BOUNDS type="Box" left="3840" top="15765" width="930" height="240">
@@ -1285,7 +1289,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5295" top="7815" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="1">
+   <PIN pinname="Y Input Value" slicecount="1" values="0">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1469,5 +1473,43 @@
    </PIN>
    </NODE>
    <LINK srcnodeid="167" srcpinname="Render State" dstnodeid="164" dstpinname="Render State">
+   </LINK>
+   <NODE systemname="AspectRatio (Transform)" filename="" nodename="AspectRatio (Transform)" componentmode="Hidden" id="168">
+   <BOUNDS type="Node" left="5415" top="25830" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Transform Out" visible="1">
+   </PIN>
+   <PIN pinname="Aspect Width" visible="1">
+   </PIN>
+   <PIN pinname="Aspect Height" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="168" srcpinname="Transform Out" dstnodeid="2" dstpinname="Aspect Ratio">
+   </LINK>
+   <NODE systemname="FrameDelay (Animation)" nodename="FrameDelay (Animation)" componentmode="Hidden" id="169">
+   <BOUNDS type="Node" left="3075" top="27330" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Input 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="2" srcpinname="Actual BackBuffer SizeXY" dstnodeid="169" dstpinname="Input 1">
+   </LINK>
+   <NODE systemname="Unzip (Value)" filename="%VVVV%\lib\nodes\plugins\VVVV.Nodes.dll" nodename="Unzip (Value)" componentmode="Hidden" id="170">
+   <BOUNDS type="Node" left="5325" top="24945" width="100" height="100">
+   </BOUNDS>
+   <PIN pinname="Output 1" visible="1">
+   </PIN>
+   <PIN pinname="Output 2" visible="1">
+   </PIN>
+   <PIN pinname="Input" visible="1">
+   </PIN>
+   </NODE>
+   <LINK srcnodeid="170" srcpinname="Output 1" dstnodeid="168" dstpinname="Aspect Width">
+   </LINK>
+   <LINK srcnodeid="170" srcpinname="Output 2" dstnodeid="168" dstpinname="Aspect Height">
+   </LINK>
+   <LINK srcnodeid="169" srcpinname="Output 1" dstnodeid="170" dstpinname="Input">
    </LINK>
    </PATCH>
