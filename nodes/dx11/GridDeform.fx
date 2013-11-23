@@ -10,6 +10,8 @@ SamplerState g_samLinear : IMMUTABLE
     AddressV = Clamp;
 };
 
+float AlphaThreshold = 0;
+
 float4x4 tVP : VIEWPROJECTION;
 float4x4 tW : WORLD;
 
@@ -149,6 +151,8 @@ float4 VERTEX_COLOR_PS(vs2ps In): SV_Target
 {
     float4 col = cAmb * In.Col;
 	col.a *= Alpha;
+	
+	if(col.a < 0.2) discard;
     return col;
 }
 
