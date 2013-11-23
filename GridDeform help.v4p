@@ -1,5 +1,5 @@
 <!DOCTYPE PATCH  SYSTEM "http://vvvv.org/versions/vvvv45beta31.2.dtd" >
-   <PATCH nodename="E:\Dropbox\Mathrioshka Code\ThomsonReuters Project\VVVV.Nodes.GridDeform\GridDeform help.v4p" systemname="GridDeform help" filename="D:\Dropbox\Git Repos\VVVV.Nodes.GridDeform\GridDeform help.v4p">
+   <PATCH nodename="D:\Dropbox\Git Repos\VVVV.Nodes.GridDeform\GridDeform help.v4p" systemname="GridDeform help" filename="D:\Dropbox\Git Repos\VVVV.Nodes.GridDeform\GridDeform help.v4p">
    <BOUNDS type="Window" left="-75" top="420" width="14400" height="16770">
    </BOUNDS>
    <NODE systemname="GridDeform (DX11.Effect)" filename="dx11\GridDeform.fx" nodename="GridDeform (DX11.Effect)" componentmode="Hidden" id="1">
@@ -801,7 +801,7 @@
    <LINK srcnodeid="108" srcpinname="Output" dstnodeid="113" dstpinname="Z">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 2d)" componentmode="Hidden" id="114">
-   <BOUNDS type="Node" left="4665" top="12915" width="100" height="100">
+   <BOUNDS type="Node" left="4650" top="12930" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXY" visible="1" slicecount="800" values="-9.5,9.5,-8.5,9.5,-7.5,9.5,-6.5,9.5,-5.5,9.5,-4.5,9.5,-3.5,9.5,-2.5,9.5,-1.5,9.5,-0.5,9.5,0.5,9.5,1.5,9.5,2.5,9.5,3.5,9.5,4.5,9.5,5.5,9.5,6.5,9.5,7.5,9.5,8.5,9.5,9.5,9.5,-9.5,8.5,-8.5,8.5,-7.5,8.5,-6.5,8.5,-5.5,8.5,-4.5,8.5,-3.5,8.5,-2.5,8.5,-1.5,8.5,-0.5,8.5,0.5,8.5,1.5,8.5,2.5,8.5,3.5,8.5,4.5,8.5,5.5,8.5,6.5,8.5,7.5,8.5,8.5,8.5,9.5,8.5,-9.5,7.5,-8.5,7.5,-7.5,7.5,-6.5,7.5,-5.5,7.5,-4.5,7.5,-3.5,7.5,-2.5,7.5,-1.5,7.5,-0.5,7.5,0.5,7.5,1.5,7.5,2.5,7.5,3.5,7.5,4.5,7.5,5.5,7.5,6.5,7.5,7.5,7.5,8.5,7.5,9.5,7.5,-9.5,6.5,-8.5,6.5,-7.5,6.5,-6.5,6.5,-5.5,6.5,-4.5,6.5,-3.5,6.5,-2.5,6.5,-1.5,6.5,-0.5,6.5,0.5,6.5,1.5,6.5,2.5,6.5,3.5,6.5,4.5,6.5,5.5,6.5,6.5,6.5,7.5,6.5,8.5,6.5,9.5,6.5,-9.5,5.5,-8.5,5.5,-7.5,5.5,-6.5,5.5,-5.5,5.5,-4.5,5.5,-3.5,5.5,-2.5,5.5,-1.5,5.5,-0.5,5.5,0.5,5.5,1.5,5.5,2.5,5.5,3.5,5.5,4.5,5.5,5.5,5.5,6.5,5.5,7.5,5.5,8.5,5.5,9.5,5.5,-9.5,4.5,-8.5,4.5,-7.5,4.5,-6.5,4.5,-5.5,4.5,-4.5,4.5,-3.5,4.5,-2.5,4.5,-1.5,4.5,-0.5,4.5,0.5,4.5,1.5,4.5,2.5,4.5,3.5,4.5,4.5,4.5,5.5,4.5,6.5,4.5,7.5,4.5,8.5,4.5,9.5,4.5,-9.5,3.5,-8.5,3.5,-7.5,3.5,-6.5,3.5,-5.5,3.5,-4.5,3.5,-3.5,3.5,-2.5,3.5,-1.5,3.5,-0.5,3.5,0.5,3.5,1.5,3.5,2.5,3.5,3.5,3.5,4.5,3.5,5.5,3.5,6.5,3.5,7.5,3.5,8.5,3.5,9.5,3.5,-9.5,2.5,-8.5,2.5,-7.5,2.5,-6.5,2.5,-5.5,2.5,-4.5,2.5,-3.5,2.5,-2.5,2.5,-1.5,2.5,-0.5,2.5,0.5,2.5,1.5,2.5,2.5,2.5,3.5,2.5,4.5,2.5,5.5,2.5,6.5,2.5,7.5,2.5,8.5,2.5,9.5,2.5,-9.5,1.5,-8.5,1.5,-7.5,1.5,-6.5,1.5,-5.5,1.5,-4.5,1.5,-3.5,1.5,-2.5,1.5,-1.5,1.5,-0.5,1.5,0.5,1.5,1.5,1.5,2.5,1.5,3.5,1.5,4.5,1.5,5.5,1.5,6.5,1.5,7.5,1.5,8.5,1.5,9.5,1.5,-9.5,0.5,-8.5,0.5,-7.5,0.5,-6.5,0.5,-5.5,0.5,-4.5,0.5,-3.5,0.5,-2.5,0.5,-1.5,0.5,-0.5,0.5,0.5,0.5,1.5,0.5,2.5,0.5,3.5,0.5,4.5,0.5,5.5,0.5,6.5,0.5,7.5,0.5,8.5,0.5,9.5,0.5,-9.5,-0.5,-8.5,-0.5,-7.5,-0.5,-6.5,-0.5,-5.5,-0.5,-4.5,-0.5,-3.5,-0.5,-2.5,-0.5,-1.5,-0.5,-0.5,-0.5,0.5,-0.5,1.5,-0.5,2.5,-0.5,3.5,-0.5,4.5,-0.5,5.5,-0.5,6.5,-0.5,7.5,-0.5,8.5,-0.5,9.5,-0.5,-9.5,-1.5,-8.5,-1.5,-7.5,-1.5,-6.5,-1.5,-5.5,-1.5,-4.5,-1.5,-3.5,-1.5,-2.5,-1.5,-1.5,-1.5,-0.5,-1.5,0.5,-1.5,1.5,-1.5,2.5,-1.5,3.5,-1.5,4.5,-1.5,5.5,-1.5,6.5,-1.5,7.5,-1.5,8.5,-1.5,9.5,-1.5,-9.5,-2.5,-8.5,-2.5,-7.5,-2.5,-6.5,-2.5,-5.5,-2.5,-4.5,-2.5,-3.5,-2.5,-2.5,-2.5,-1.5,-2.5,-0.5,-2.5,0.5,-2.5,1.5,-2.5,2.5,-2.5,3.5,-2.5,4.5,-2.5,5.5,-2.5,6.5,-2.5,7.5,-2.5,8.5,-2.5,9.5,-2.5,-9.5,-3.5,-8.5,-3.5,-7.5,-3.5,-6.5,-3.5,-5.5,-3.5,-4.5,-3.5,-3.5,-3.5,-2.5,-3.5,-1.5,-3.5,-0.5,-3.5,0.5,-3.5,1.5,-3.5,2.5,-3.5,3.5,-3.5,4.5,-3.5,5.5,-3.5,6.5,-3.5,7.5,-3.5,8.5,-3.5,9.5,-3.5,-9.5,-4.5,-8.5,-4.5,-7.5,-4.5,-6.5,-4.5,-5.5,-4.5,-4.5,-4.5,-3.5,-4.5,-2.5,-4.5,-1.5,-4.5,-0.5,-4.5,0.5,-4.5,1.5,-4.5,2.5,-4.5,3.5,-4.5,4.5,-4.5,5.5,-4.5,6.5,-4.5,7.5,-4.5,8.5,-4.5,9.5,-4.5,-9.5,-5.5,-8.5,-5.5,-7.5,-5.5,-6.5,-5.5,-5.5,-5.5,-4.5,-5.5,-3.5,-5.5,-2.5,-5.5,-1.5,-5.5,-0.5,-5.5,0.5,-5.5,1.5,-5.5,2.5,-5.5,3.5,-5.5,4.5,-5.5,5.5,-5.5,6.5,-5.5,7.5,-5.5,8.5,-5.5,9.5,-5.5,-9.5,-6.5,-8.5,-6.5,-7.5,-6.5,-6.5,-6.5,-5.5,-6.5,-4.5,-6.5,-3.5,-6.5,-2.5,-6.5,-1.5,-6.5,-0.5,-6.5,0.5,-6.5,1.5,-6.5,2.5,-6.5,3.5,-6.5,4.5,-6.5,5.5,-6.5,6.5,-6.5,7.5,-6.5,8.5,-6.5,9.5,-6.5,-9.5,-7.5,-8.5,-7.5,-7.5,-7.5,-6.5,-7.5,-5.5,-7.5,-4.5,-7.5,-3.5,-7.5,-2.5,-7.5,-1.5,-7.5,-0.5,-7.5,0.5,-7.5,1.5,-7.5,2.5,-7.5,3.5,-7.5,4.5,-7.5,5.5,-7.5,6.5,-7.5,7.5,-7.5,8.5,-7.5,9.5,-7.5,-9.5,-8.5,-8.5,-8.5,-7.5,-8.5,-6.5,-8.5,-5.5,-8.5,-4.5,-8.5,-3.5,-8.5,-2.5,-8.5,-1.5,-8.5,-0.5,-8.5,0.5,-8.5,1.5,-8.5,2.5,-8.5,3.5,-8.5,4.5,-8.5,5.5,-8.5,6.5,-8.5,7.5,-8.5,8.5,-8.5,9.5,-8.5,-9.5,-9.5,-8.5,-9.5,-7.5,-9.5,-6.5,-9.5,-5.5,-9.5,-4.5,-9.5,-3.5,-9.5,-2.5,-9.5,-1.5,-9.5,-0.5,-9.5,0.5,-9.5,1.5,-9.5,2.5,-9.5,3.5,-9.5,4.5,-9.5,5.5,-9.5,6.5,-9.5,7.5,-9.5,8.5,-9.5,9.5,-9.5">
    </PIN>
@@ -883,7 +883,7 @@
    <LINK srcnodeid="65" srcpinname="Output" dstnodeid="122" dstpinname="Y Input Value">
    </LINK>
    <NODE systemname="DynamicBuffer (DX11.Buffer 2d)" filename="%VVVV%\packs\DX11\nodes\plugins\VVVV.DX11.Nodes.dll" nodename="DynamicBuffer (DX11.Buffer 2d)" componentmode="Hidden" id="124">
-   <BOUNDS type="Node" left="5265" top="12330" width="100" height="100">
+   <BOUNDS type="Node" left="4830" top="11625" width="100" height="100">
    </BOUNDS>
    <PIN pinname="DataXY" visible="1" slicecount="800" values="0,0">
    </PIN>
@@ -1155,11 +1155,11 @@
    </PIN>
    </NODE>
    <NODE nodename="IOBox (String)" componentmode="InABox" id="151" systemname="IOBox (String)">
-   <BOUNDS type="Box" left="1290" top="7260" width="795" height="240">
+   <BOUNDS type="Box" left="1230" top="6885" width="3195" height="240">
    </BOUNDS>
-   <BOUNDS type="Node" left="1290" top="7260" width="0" height="0">
+   <BOUNDS type="Node" left="1230" top="6885" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Input String" slicecount="1" values="|..\..\..\Mathrioshka Collaborative\Thomson Reuters\UrbanData\Infolandscapes\Model\Blobs\BlobsA_Safety_Positive+Char01 Mesh.ply|">
+   <PIN pinname="Input String" slicecount="1" values="|..\..\Mathrioshka Collaborative\Thomson Reuters\UrbanData\Infolandscapes\Model\Blobs\Assets3D\BlobsA_Safety_Positive+Char01 Mesh.ply|">
    </PIN>
    <PIN pinname="Default" slicecount="1" values="||">
    </PIN>
@@ -1285,7 +1285,7 @@
    </BOUNDS>
    <BOUNDS type="Node" left="5295" top="7815" width="0" height="0">
    </BOUNDS>
-   <PIN pinname="Y Input Value" slicecount="1" values="0">
+   <PIN pinname="Y Input Value" slicecount="1" values="1">
    </PIN>
    <PIN pinname="Units" slicecount="1" values="||">
    </PIN>
@@ -1393,7 +1393,7 @@
    </PIN>
    <PIN pinname="Geometry" visible="1">
    </PIN>
-   <PIN pinname="Technique" slicecount="1" values="Constant">
+   <PIN pinname="Technique" slicecount="1" values="Vertex_Color">
    </PIN>
    <PIN pinname="Transform In" visible="1" slicecount="1" values="||">
    </PIN>

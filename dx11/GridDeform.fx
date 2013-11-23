@@ -37,30 +37,12 @@ struct vs2ps
 	float4 Col: COLOR;
 };
 
-vs2ps VERTEX_COLOR_VS(VS_IN input)
-{
-    vs2ps Out = (vs2ps)0;
-    Out.PosWVP  = mul(input.PosO,mul(tW,tVP));
-	Out.Col = input.Col;
-    return Out;
-}
-
-vs2ps CONSTANT_VS(float4 PosO:Position)
-{
-	vs2ps Out = (vs2ps)0;
-	
-	float4 posW = mul(PosO, tW);
-	
-	//Dirty Hack
-	posW *= 0.9999;
-	
-	float2 pos = posW.xz;
-	
+float2 cartogramDeform(float2 pos) {
 	float halfWidth = GridWidth / 2;
 	
-	int iU = floor((halfWidth + posW.x) / SegmentSize);
+	int iU = floor((halfWidth + pos.x) / SegmentSize);
 	
-	int iV = floor((halfWidth - posW.z) / SegmentSize);
+	int iV = floor((halfWidth - pos.y) / SegmentSize);
 	
 	int cellIndex = iU + iV * (Resolution - 1);
 	
@@ -84,9 +66,43 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 	
 	float2 uvPos = (1.0 - v) * uP1 + v * uP0;
 	
-	float2 uvPos2 = 0;
-	uvPos2.x = (bP0.x + bP1.x + bP2.x + bP3.x) / 4;
-	uvPos2.y = (bP0.y + bP1.y + bP2.y + bP3.y) / 4;
+	return uvPos;
+}
+
+vs2ps VERTEX_COLOR_VS(VS_IN input)
+{
+    vs2ps Out = (vs2ps)0;
+	float4 posW = mul(input.PosO, tW);
+	
+	//Dirty Hack
+	posW *= 0.9999;
+	
+	float2 pos = posW.xz;
+	
+	float2 uvPos = cartogramDeform(pos);
+	
+	posW.xz = uvPos;
+	
+    Out.PosWVP = mul(posW, tVP);
+	Out.Col = input.Col;
+    return Out;
+}
+
+vs2ps CONSTANT_VS(float4 PosO:Position)
+{
+	vs2ps Out = (vs2ps)0;
+	float4 posW = mul(PosO, tW);
+	
+	//Dirty Hack
+	posW *= 0.9999;
+	
+	float2 pos = posW.xz;
+	
+	float2 uvPos = cartogramDeform(pos);
+	
+//	float2 uvPos2 = 0;
+//	uvPos2.x = (bP0.x + bP1.x + bP2.x + bP3.x) / 4;
+//	uvPos2.y = (bP0.y + bP1.y + bP2.y + bP3.y) / 4;
 	
 	posW.xz = uvPos;
 	
