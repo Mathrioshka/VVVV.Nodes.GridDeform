@@ -1321,7 +1321,7 @@
    </BOUNDS>
    <BOUNDS type="Box" left="-71" top="-849" width="8245" height="8490">
    </BOUNDS>
-   <BOUNDS type="Window" left="6045" top="1725" width="15720" height="16200">
+   <BOUNDS type="Window" left="10200" top="4440" width="15720" height="16200">
    </BOUNDS>
    <PIN pinname="Deformed XY" visible="1">
    </PIN>
