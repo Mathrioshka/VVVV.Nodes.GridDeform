@@ -10,6 +10,8 @@ SamplerState g_samLinear : IMMUTABLE
     AddressV = Clamp;
 };
 
+Texture2D texture2d <string uiname="Texture";>;
+
 float AlphaThreshold = 0;
 
 float4x4 tVP : VIEWPROJECTION;
@@ -44,6 +46,7 @@ struct vs2ps
 {
     float4 PosWVP: SV_POSITION;
 	float4 Col: COLOR;
+	float4 TexCd: TEXCOORD0;
 };
 
 float2 cartogramDeform(float2 pos) {
@@ -129,7 +132,7 @@ vs2ps VERTEX_COLOR_VS(VS_IN input)
     return Out;
 }
 
-vs2ps CONSTANT_VS(float4 PosO:Position)
+vs2ps CONSTANT_VS(float4 PosO:Position, float4 TexCd: TEXCOORD0)
 {
 	vs2ps Out = (vs2ps)0;
 	float4 posW = mul(PosO, tW);
@@ -144,6 +147,7 @@ vs2ps CONSTANT_VS(float4 PosO:Position)
 	posW.xz = uvPos;
 	
 	Out.PosWVP = mul(posW, tVP);
+	Out.TexCd = TexCd;
     return Out;
 }
 
@@ -158,7 +162,7 @@ float4 VERTEX_COLOR_PS(vs2ps In): SV_Target
 
 float4 CONSTANT_PS(vs2ps In): SV_Target
 {
-    float4 col = cAmb;
+    float4 col = texture2d.Sample(g_samLinear,In.TexCd.xy) * cAmb;
 	col.a *= Alpha;
     return col;
 }
